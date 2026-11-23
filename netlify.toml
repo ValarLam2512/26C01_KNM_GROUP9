@@ -1,0 +1,13 @@
+[build]
+  publish = "."
+
+# Link riêng cho người xem: cùng nội dung với trang chính nhưng không có thanh công cụ chỉnh sửa.
+[[redirects]]
+  from = "/xem/assets/*"
+  to = "/assets/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/xem"
+  to = "/index.html"
+  status = 200
