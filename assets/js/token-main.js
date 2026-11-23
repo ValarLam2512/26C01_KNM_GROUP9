@@ -6,6 +6,13 @@ document.querySelectorAll('#tokenNav .nav-link, #tokenNav .dropdown-item').forEa
   });
 });
 
+// Keep the homepage frame anchored to the hero section on a fresh load.
+if (!location.hash && /(?:^\/?$|\/index\.html?$)/.test(location.pathname)) {
+  window.addEventListener('DOMContentLoaded', () => {
+    requestAnimationFrame(() => window.scrollTo(0, 0));
+  });
+}
+
 
 /* === TOKEN GROUP 09: AUTO-SAVE FILE UPLOAD TO BROWSER MEMORY (IndexedDB) === */
 (function () {
