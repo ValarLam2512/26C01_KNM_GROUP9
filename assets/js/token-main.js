@@ -6,12 +6,20 @@ document.querySelectorAll('#tokenNav .nav-link, #tokenNav .dropdown-item').forEa
   });
 });
 
-// Keep the homepage frame anchored to the hero section on a fresh load.
-if (!location.hash && /(?:^\/?$|\/index\.html?$)/.test(location.pathname)) {
-  window.addEventListener('DOMContentLoaded', () => {
-    requestAnimationFrame(() => window.scrollTo(0, 0));
+// The full directory card acts as a navigation target; inner links keep their own anchors.
+document.querySelectorAll('.directory-card[data-href]').forEach(card => {
+  const openCard = event => {
+    if (event.target.closest('a')) return;
+    window.location.href = card.dataset.href;
+  };
+  card.addEventListener('click', openCard);
+  card.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      window.location.href = card.dataset.href;
+    }
   });
-}
+});
 
 
 /* === TOKEN GROUP 09: AUTO-SAVE FILE UPLOAD TO BROWSER MEMORY (IndexedDB) === */
