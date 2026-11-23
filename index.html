@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="vi" data-bs-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0d6efd" />
+  <meta name="description" content="Trang thông tin dự án, thành viên, hoạt động, quy định và tài liệu làm việc của nhóm." />
+  <title>Trang chủ Nhóm Dự Án | Hồ sơ &amp; Quy chế làm việc</title>
+
+  <!-- Google Fonts: Be Vietnam Pro & Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5.3.3 CSS & Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <!-- Custom CSS (Fallback & Design Tokens) -->
+  <link rel="stylesheet" href="./assets/css/layout-fallback.css" />
+  <link rel="stylesheet" href="./assets/css/token-style.css" />
+
+  <style>
+    :root {
+      --font-heading: 'Be Vietnam Pro', sans-serif;
+      --font-body: 'Roboto', sans-serif;
+      --navbar-height: 72px;
+      --brand-primary: #0d6efd;
+      --brand-surface: #f8fafc;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--navbar-height) + 20px);
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: #1e293b;
+      background-color: #ffffff;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6, .navbar-brand {
+      font-family: var(--font-heading);
+      letter-spacing: -0.01em;
+    }
+
+    /* Fix sticky navbar & anchor scroll offset */
+    .navbar {
+      min-height: var(--navbar-height);
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.95) !important;
+    }
+
+    section[id], article[id], footer[id] {
+      scroll-margin-top: calc(var(--navbar-height) + 20px);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 55%, #eef2ff 100%);
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    /* Table of Contents Card */
+    .toc-link {
+      transition: all 0.2s ease;
+      border-left: 3px solid transparent;
+    }
+    .toc-link:hover {
+      background-color: #f1f5f9;
+      border-left-color: var(--brand-primary);
+      padding-left: 1rem !important;
+    }
+
+    /* Member Cards - Equal Height & Fixed Aspect Ratio Image */
+    .member-card {
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      border: 1px solid #e2e8f0;
+    }
+    .member-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -8px rgba(15, 23, 42, 0.12) !important;
+    }
+    .member-avatar-wrap {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background-color: #e2e8f0;
+    }
+    .member-avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* Charter Columns */
+    .charter-card {
+      border-top-width: 4px !important;
+    }
+
+    /* Section spacing */
+    .section-padding {
+      padding-top: 4.5rem;
+      padding-bottom: 4.5rem;
+    }
+    @media (max-width: 767.98px) {
+      .section-padding {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+    }
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="100" tabindex="0">
+
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content" class="visually-hidden-focusable btn btn-primary position-fixed top-0 start-0 m-2 z-3">
+    Chuyển đến nội dung chính
+  </a>
+
+  <!-- ==================== 1. NAVBAR ==================== -->
+  <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light sticky-top border-bottom shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center gap-2 text-primary" href="#">
+        <i class="bi bi-layers-half fs-4"></i>
+        <span>NHÓM DỰ ÁN</span>
+      </a>
+
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Mở điều hướng">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item">
+            <a class="nav-link px-3 fw-medium" href="#about">Thành viên</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3 fw-medium" href="#project">Dự án</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3 fw-medium" href="#activities">Hoạt động</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle px-3 fw-medium" href="#charter" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Quy định nhóm
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0">
+              <li><a class="dropdown-item" href="#charter">Tổng quan quy chế</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item text-success" href="#charter-must"><i class="bi bi-check-circle me-2"></i>Việc phải làm</a></li>
+              <li><a class="dropdown-item text-danger" href="#charter-not"><i class="bi bi-x-circle me-2"></i>Việc không được làm</a></li>
+              <li><a class="dropdown-item text-primary" href="#charter-should"><i class="bi bi-lightbulb me-2"></i>Việc nên làm</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3 fw-medium" href="#communication">Giao tiếp</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3 fw-medium" href="#teamwork">Làm việc nhóm</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3 fw-medium" href="#documents">Tài liệu</a>
+          </li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+            <a class="btn btn-primary btn-sm px-3 py-2 rounded-pill fw-medium" href="#contact">Liên hệ</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== 2. HEADER / HERO ==================== -->
+  <header class="hero-section py-5">
+    <div class="container py-lg-3">
+      <div class="row align-items-center g-4 g-lg-5">
+        <div class="col-lg-7">
+          <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-3 py-2 mb-3 fw-semibold">
+            <i class="bi bi-people-fill me-1"></i> Hồ sơ Nhóm &amp; Quy chế Hoạt động
+          </span>
+          <h1 class="display-5 fw-bold text-dark mb-3">
+            Hợp tác hiệu quả, Minh bạch quy trình &amp; Kiến tạo giá trị
+          </h1>
+          <p class="lead text-secondary mb-4">
+            Không gian tập trung thông tin thành viên, mục tiêu dự án, lộ trình hoạt động, nguyên tắc ứng xử và kho tài liệu chung của toàn nhóm.
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <a href="#project" class="btn btn-primary px-4 py-2 fw-medium">
+              <i class="bi bi-rocket-takeoff me-2"></i>Xem thông tin dự án
+            </a>
+            <a href="#contents" class="btn btn-outline-secondary px-4 py-2 fw-medium">
+              <i class="bi bi-list-ul me-2"></i>Mục lục nhanh
+            </a>
+          </div>
+        </div>
+
+        <!-- Mục lục (Table of Contents) -->
+        <div class="col-lg-5" id="contents">
+          <div class="card border-0 shadow-sm rounded-4">
+            <div class="card-body p-4">
+              <h2 class="h5 fw-bold mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-compass text-primary"></i>
+                <span>Mục lục nội dung</span>
+              </h2>
+              <div class="list-group list-group-flush small">
+                <a href="#about" class="list-group-item list-group-item-action toc-link py-2 px-2">
+                  <span class="fw-bold text-primary me-2">01.</span> Giới thiệu thành viên nhóm
+                </a>
+                <a href="#project" class="list-group-item list-group-item-action toc-link py-2 px-2">
+                  <span class="fw-bold text-primary me-2">02.</span> Tổng quan &amp; Mục tiêu dự án
+                </a>
+                <a href="#activities" class="list-group-item list-group-item-action toc-link py-2 px-2">
+                  <span class="fw-bold text-primary me-2">03.</span> Kế hoạch &amp; Hoạt động triển khai
+                </a>
+                <a href="#charter" class="list-group-item list-group-item-action toc-link py-2 px-2">
+                  <span class="fw-bold text-primary me-2">04.</span> Quy định nhóm (Phải làm / Cấm / Nên làm)
+                </a>
+                <a href="#communication" class="list-group-item list-group-item-action toc-link py-2 px-2">
+                  <span class="fw-bold text-primary me-2">05.</span> Kênh &amp; Nguyên tắc giao tiếp
+                </a>
+                <a href="#teamwork" class="list-group-item list-group-item-action toc-link py-2 px-2">
+                  <span class="fw-bold text-primary me-2">06.</span> Quy trình phối hợp &amp; Phân công
+                </a>
+                <a href="#documents" class="list-group-item list-group-item-action toc-link py-2 px-2">
+                  <span class="fw-bold text-primary me-2">07.</span> Kho tài liệu &amp; Biểu mẫu
+                </a>
+                <a href="#contact" class="list-group-item list-group-item-action toc-link py-2 px-2">
+                  <span class="fw-bold text-primary me-2">08.</span> Thông tin liên hệ &amp; Chân trang
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main id="main-content">
+
+    <!-- 01. THÀNH VIÊN NHÓM -->
+    <section id="about" class="section-padding">
+      <div class="container">
+        <div class="row justify-content-between align-items-end mb-4 g-3">
+          <div class="col-lg-8">
+            <span class="text-primary fw-semibold text-uppercase small">01. Nhân sự</span>
+            <h2 class="h2 fw-bold mt-1 mb-2">Thành viên nhóm</h2>
+            <p class="text-secondary mb-0">Danh sách thành viên nòng cốt cùng vai trò chuyên môn và trách nhiệm trong dự án.</p>
+          </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+          <!-- Member 1: Trần -->
+          <div class="col">
+            <article id="member-tran" class="card h-100 rounded-4 overflow-hidden shadow-sm member-card">
+              <div class="member-avatar-wrap">
+                <img src="./assets/img/member-tran.jpg" alt="Ảnh chân dung thành viên Trần" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x450/e2e8f0/1e293b?text=Thanh+Vien+Tran';" />
+              </div>
+              <div class="card-body d-flex flex-column p-4">
+                <div class="mb-2">
+                  <span class="badge bg-primary-subtle text-primary fw-semibold">Nhóm trưởng (Leader)</span>
+                </div>
+                <h3 class="h5 fw-bold mb-1">Trần</h3>
+                <p class="text-muted small mb-3">Điều phối chung &amp; Quản lý tiến độ</p>
+                <p class="card-text small text-secondary mb-0 mt-auto">
+                  Phụ trách lập kế hoạch tổng thể, phân bổ nguồn lực, theo dõi mốc thời gian và tổng hợp báo cáo định kỳ.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <!-- Member 2: Bảo -->
+          <div class="col">
+            <article id="member-bao" class="card h-100 rounded-4 overflow-hidden shadow-sm member-card">
+              <div class="member-avatar-wrap">
+                <img src="./assets/img/member-bao.jpg" alt="Ảnh chân dung thành viên Bảo" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x450/e2e8f0/1e293b?text=Thanh+Vien+Bao';" />
+              </div>
+              <div class="card-body d-flex flex-column p-4">
+                <div class="mb-2">
+                  <span class="badge bg-info-subtle text-info-emphasis fw-semibold">Phụ trách Kỹ thuật</span>
+                </div>
+                <h3 class="h5 fw-bold mb-1">Bảo</h3>
+                <p class="text-muted small mb-3">Phát triển giải pháp &amp; Kiểm thử</p>
+                <p class="card-text small text-secondary mb-0 mt-auto">
+                  Thiết kế kiến trúc kỹ thuật, triển khai tính năng cốt lõi và đảm bảo chất lượng sản phẩm trước bàn giao.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <!-- Member 3: Tâm -->
+          <div class="col">
+            <article id="member-tam" class="card h-100 rounded-4 overflow-hidden shadow-sm member-card">
+              <div class="member-avatar-wrap">
+                <img src="./assets/img/member-tam.jpg" alt="Ảnh chân dung thành viên Tâm" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x450/e2e8f0/1e293b?text=Thanh+Vien+Tam';" />
+              </div>
+              <div class="card-body d-flex flex-column p-4">
+                <div class="mb-2">
+                  <span class="badge bg-success-subtle text-success fw-semibold">Phụ trách Nội dung</span>
+                </div>
+                <h3 class="h5 fw-bold mb-1">Tâm</h3>
+                <p class="text-muted small mb-3">Nghiên cứu &amp; Biên soạn tài liệu</p>
+                <p class="card-text small text-secondary mb-0 mt-auto">
+                  Thu thập dữ liệu đầu vào, xây dựng nội dung thuyết trình, viết báo cáo và chuẩn hóa hồ sơ dự án.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <!-- Member 4: Anh -->
+          <div class="col">
+            <article id="member-anh" class="card h-100 rounded-4 overflow-hidden shadow-sm member-card">
+              <div class="member-avatar-wrap">
+                <img src="./assets/img/member-anh.jpg" alt="Ảnh chân dung thành viên Anh" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x450/e2e8f0/1e293b?text=Thanh+Vien+Anh';" />
+              </div>
+              <div class="card-body d-flex flex-column p-4">
+                <div class="mb-2">
+                  <span class="badge bg-warning-subtle text-warning-emphasis fw-semibold">Phụ trách Thiết kế</span>
+                </div>
+                <h3 class="h5 fw-bold mb-1">Anh</h3>
+                <p class="text-muted small mb-3">UI/UX &amp; Trực quan hóa dữ liệu</p>
+                <p class="card-text small text-secondary mb-0 mt-auto">
+                  Thiết kế giao diện người dùng, đồng bộ nhận diện trực quan và tối ưu trải nghiệm trình bày sản phẩm.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02. DỰ ÁN -->
+    <section id="project" class="section-padding bg-light border-top border-bottom">
+      <div class="container">
+        <div class="mb-4">
+          <span class="text-primary fw-semibold text-uppercase small">02. Đề tài</span>
+          <h2 class="h2 fw-bold mt-1 mb-2">Tổng quan Dự án</h2>
+          <p class="text-secondary mb-0">Bối cảnh thực hiện, mục tiêu cốt lõi và phạm vi sản phẩm bàn giao của nhóm.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="card h-100 border-0 shadow-sm rounded-4">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                  <div class="bg-primary-subtle text-primary rounded-3 p-3">
+                    <i class="bi bi-bullseye fs-4"></i>
+                  </div>
+                  <h3 class="h5 fw-bold mb-0">Mục tiêu &amp; Giá trị cốt lõi</h3>
+                </div>
+                <p class="text-secondary">
+                  Xây dựng giải pháp hoàn chỉnh đáp ứng đúng yêu cầu nghiệp vụ, đảm bảo tính ổn định, dễ sử dụng và có tài liệu hướng dẫn rõ ràng.
+                </p>
+                <ul class="list-unstyled mb-0 d-flex flex-column gap-2 small">
+                  <li><i class="bi bi-check2-circle text-primary me-2"></i>Hoàn thành đúng 100% các cột mốc (milestones) đã cam kết.</li>
+                  <li><i class="bi bi-check2-circle text-primary me-2"></i>Đảm bảo tính nhất quán giữa thiết kế giao diện và tài liệu kỹ thuật.</li>
+                  <li><i class="bi bi-check2-circle text-primary me-2"></i>Tối ưu hiệu năng hiển thị trên cả máy tính và thiết bị di động.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="card h-100 border-0 shadow-sm rounded-4">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                  <div class="bg-success-subtle text-success rounded-3 p-3">
+                    <i class="bi bi-kanban fs-4"></i>
+                  </div>
+                  <h3 class="h5 fw-bold mb-0">Phạm vi &amp; Sản phẩm bàn giao</h3>
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-sm table-borderless align-middle mb-0 small">
+                    <tbody>
+                      <tr class="border-bottom">
+                        <th scope="row" class="text-secondary fw-medium py-2" style="width: 38%;">Giai đoạn 1</th>
+                        <td class="py-2">Khảo sát yêu cầu, lập kế hoạch và thống nhất quy chế nhóm.</td>
+                      </tr>
+                      <tr class="border-bottom">
+                        <th scope="row" class="text-secondary fw-medium py-2">Giai đoạn 2</th>
+                        <td class="py-2">Thiết kế khung giao diện, cấu trúc dữ liệu và nguyên mẫu.</td>
+                      </tr>
+                      <tr class="border-bottom">
+                        <th scope="row" class="text-secondary fw-medium py-2">Giai đoạn 3</th>
+                        <td class="py-2">Phát triển hoàn thiện, kiểm thử chéo và tối ưu trải nghiệm.</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="text-secondary fw-medium py-2">Giai đoạn 4</th>
+                        <td class="py-2">Đóng gói tài liệu, nghiệm thu nội bộ và báo cáo tổng kết.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03. HOẠT ĐỘNG -->
+    <section id="activities" class="section-padding">
+      <div class="container">
+        <div class="mb-4">
+          <span class="text-primary fw-semibold text-uppercase small">03. Lộ trình</span>
+          <h2 class="h2 fw-bold mt-1 mb-2">Hoạt động &amp; Nhịp độ triển khai</h2>
+          <p class="text-secondary mb-0">Các phiên làm việc định kỳ giúp nhóm duy trì tiến độ và tháo gỡ vướng mắc kịp thời.</p>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100 border rounded-4 shadow-sm">
+              <div class="card-body p-4">
+                <span class="badge bg-primary mb-3">Hàng tuần</span>
+                <h3 class="h5 fw-bold">Họp rà soát tiến độ</h3>
+                <p class="text-secondary small mb-0">
+                  Tổng hợp đầu việc đã hoàn thành, rà soát các hạng mục đang thực hiện và điều chỉnh ưu tiên cho tuần kế tiếp (thời lượng tối đa 45 phút).
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 border rounded-4 shadow-sm">
+              <div class="card-body p-4">
+                <span class="badge bg-info text-dark mb-3">Theo cột mốc</span>
+                <h3 class="h5 fw-bold">Đánh giá chéo (Peer Review)</h3>
+                <p class="text-secondary small mb-0">
+                  Các thành viên kiểm tra chéo mã nguồn, giao diện và nội dung tài liệu của nhau trước khi hợp nhất vào phiên bản chính thức.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 border rounded-4 shadow-sm">
+              <div class="card-body p-4">
+                <span class="badge bg-success mb-3">Cuối giai đoạn</span>
+                <h3 class="h5 fw-bold">Tổng kết &amp; Rút kinh nghiệm</h3>
+                <p class="text-secondary small mb-0">
+                  Đánh giá hiệu quả phối hợp, ghi nhận bài học kinh nghiệm và cập nhật quy trình làm việc cho giai đoạn tiếp theo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04. QUY ĐỊNH NHÓM (CHARTER) -->
+    <section id="charter" class="section-padding bg-light border-top border-bottom">
+      <div class="container">
+        <div class="mb-4">
+          <span class="text-primary fw-semibold text-uppercase small">04. Nội quy</span>
+          <h2 class="h2 fw-bold mt-1 mb-2">Quy định làm việc nhóm</h2>
+          <p class="text-secondary mb-0">Bộ nguyên tắc chung được toàn bộ thành viên thống nhất cam kết tuân thủ.</p>
+        </div>
+
+        <div class="row row-cols-1 row-cols-lg-3 g-4">
+          <!-- Việc phải làm -->
+          <div class="col">
+            <article id="charter-must" class="card h-100 border-0 border-top border-success shadow-sm rounded-4 charter-card">
+              <div class="card-body p-4">
+                <h3 class="h5 fw-bold text-success mb-3 d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>Việc phải làm (Must)</span>
+                </h3>
+                <ul class="d-flex flex-column gap-2 text-secondary small ps-3 mb-0">
+                  <li>Tham gia đầy đủ các buổi họp đã thống nhất lịch trước.</li>
+                  <li>Hoàn thành nhiệm vụ đúng hạn; báo trước ít nhất 24 giờ nếu có rủi ro trễ hạn.</li>
+                  <li>Cập nhật trạng thái công việc minh bạch trên bảng quản lý chung.</li>
+                  <li>Lưu trữ đúng thư mục và đặt tên file theo quy chuẩn của nhóm.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <!-- Việc không được làm -->
+          <div class="col">
+            <article id="charter-not" class="card h-100 border-0 border-top border-danger shadow-sm rounded-4 charter-card">
+              <div class="card-body p-4">
+                <h3 class="h5 fw-bold text-danger mb-3 d-flex align-items-center gap-2">
+                  <i class="bi bi-x-circle-fill"></i>
+                  <span>Việc không được làm (Must Not)</span>
+                </h3>
+                <ul class="d-flex flex-column gap-2 text-secondary small ps-3 mb-0">
+                  <li>Vắng họp không lý do hoặc ngắt liên lạc quá 24 giờ trong giai đoạn cao điểm.</li>
+                  <li>Tự ý thay đổi cấu trúc thư mục hoặc ghi đè tài liệu của thành viên khác khi chưa trao đổi.</li>
+                  <li>Trì hoãn báo cáo sự cố kỹ thuật đến sát thời điểm nộp bài.</li>
+                  <li>Chỉ trích cá nhân thay vì góp ý mang tính xây dựng trên sản phẩm.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <!-- Việc nên làm -->
+          <div class="col">
+            <article id="charter-should" class="card h-100 border-0 border-top border-primary shadow-sm rounded-4 charter-card">
+              <div class="card-body p-4">
+                <h3 class="h5 fw-bold text-primary mb-3 d-flex align-items-center gap-2">
+                  <i class="bi bi-lightbulb-fill"></i>
+                  <span>Việc nên làm (Should)</span>
+                </h3>
+                <ul class="d-flex flex-column gap-2 text-secondary small ps-3 mb-0">
+                  <li>Chủ động đề xuất giải pháp cải tiến quy trình hoặc tối ưu giao diện.</li>
+                  <li>Hỗ trợ các thành viên khác khi đã hoàn thành phần việc cá nhân sớm.</li>
+                  <li>Ghi chú rõ ràng các quyết định quan trọng ngay sau mỗi buổi thảo luận.</li>
+                  <li>Chia sẻ tài nguyên, công cụ hữu ích giúp nâng cao năng suất chung.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05. GIAO TIẾP & 06. LÀM VIỆC NHÓM -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+          <!-- 05. Giao tiếp -->
+          <div class="col-lg-6" id="communication">
+            <span class="text-primary fw-semibold text-uppercase small">05. Kết nối</span>
+            <h2 class="h3 fw-bold mt-1 mb-3">Nguyên tắc giao tiếp</h2>
+            <div class="card border rounded-4 shadow-sm">
+              <div class="card-body p-4">
+                <ul class="list-group list-group-flush small">
+                  <li class="list-group-item px-0 py-3">
+                    <div class="fw-bold text-dark mb-1"><i class="bi bi-chat-dots text-primary me-2"></i>Kênh trao đổi nhanh</div>
+                    <span class="text-secondary">Sử dụng nhóm chat chính thức để cập nhật tiến độ hàng ngày. Thời gian phản hồi tối đa trong vòng 4 giờ làm việc.</span>
+                  </li>
+                  <li class="list-group-item px-0 py-3">
+                    <div class="fw-bold text-dark mb-1"><i class="bi bi-camera-video text-primary me-2"></i>Họp trực tuyến</div>
+                    <span class="text-secondary">Gửi chương trình họp (Agenda) trước ít nhất 6 giờ và chốt biên bản (Meeting Notes) sau khi kết thúc.</span>
+                  </li>
+                  <li class="list-group-item px-0 pt-3 pb-0">
+                    <div class="fw-bold text-dark mb-1"><i class="bi bi-bell text-primary me-2"></i>Xử lý khẩn cấp</div>
+                    <span class="text-secondary">Gắn thẻ trực tiếp thành viên liên quan hoặc gọi điện thoại đối với các vấn đề ảnh hưởng đến hạn chót bàn giao.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 06. Làm việc nhóm -->
+          <div class="col-lg-6" id="teamwork">
+            <span class="text-primary fw-semibold text-uppercase small">06. Phối hợp</span>
+            <h2 class="h3 fw-bold mt-1 mb-3">Quy trình làm việc nhóm</h2>
+            <div class="card border rounded-4 shadow-sm">
+              <div class="card-body p-4">
+                <ol class="list-group list-group-numbered list-group-flush small">
+                  <li class="list-group-item px-0 py-3">
+                    <span class="fw-bold text-dark">Phân rã đầu việc (Task Breakdown):</span>
+                    <span class="text-secondary d-block mt-1">Chia nhỏ hạng mục thành các nhiệm vụ có người phụ trách chính và thời hạn cụ thể.</span>
+                  </li>
+                  <li class="list-group-item px-0 py-3">
+                    <span class="fw-bold text-dark">Thực thi &amp; Đồng bộ:</span>
+                    <span class="text-secondary d-block mt-1">Cập nhật tiến độ theo 3 trạng thái: <em>Cần làm (To Do)</em>, <em>Đang làm (In Progress)</em> và <em>Hoàn thành (Done)</em>.</span>
+                  </li>
+                  <li class="list-group-item px-0 pt-3 pb-0">
+                    <span class="fw-bold text-dark">Nghiệm thu &amp; Lưu trữ:</span>
+                    <span class="text-secondary d-block mt-1">Kiểm tra chất lượng đầu ra trước khi chuyển sang giai đoạn kế tiếp.</span>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07. TÀI LIỆU -->
+    <section id="documents" class="section-padding bg-light border-top">
+      <div class="container">
+        <div class="mb-4">
+          <span class="text-primary fw-semibold text-uppercase small">07. Lưu trữ</span>
+          <h2 class="h2 fw-bold mt-1 mb-2">Tài liệu &amp; Biểu mẫu nhóm</h2>
+          <p class="text-secondary mb-0">Hệ thống văn bản, kế hoạch và báo cáo được chuẩn hóa phục vụ quá trình triển khai.</p>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm rounded-4">
+              <div class="card-body p-4 d-flex flex-column">
+                <div class="text-primary fs-3 mb-2"><i class="bi bi-file-earmark-text"></i></div>
+                <h3 class="h6 fw-bold">Kế hoạch triển khai tổng thể</h3>
+                <p class="text-secondary small mb-3">Bảng phân công chi tiết, mốc thời gian và tiêu chí đánh giá từng giai đoạn.</p>
+                <a href="#documents" class="btn btn-outline-primary btn-sm mt-auto align-self-start">Xem tài liệu</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm rounded-4">
+              <div class="card-body p-4 d-flex flex-column">
+                <div class="text-success fs-3 mb-2"><i class="bi bi-journal-check"></i></div>
+                <h3 class="h6 fw-bold">Biên bản họp định kỳ</h3>
+                <p class="text-secondary small mb-3">Tổng hợp nội dung thảo luận, các quyết định đã thống nhất và đầu việc phát sinh.</p>
+                <a href="#documents" class="btn btn-outline-success btn-sm mt-auto align-self-start">Xem biên bản</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm rounded-4">
+              <div class="card-body p-4 d-flex flex-column">
+                <div class="text-warning-emphasis fs-3 mb-2"><i class="bi bi-folder2-open"></i></div>
+                <h3 class="h6 fw-bold">Báo cáo &amp; Sản phẩm mẫu</h3>
+                <p class="text-secondary small mb-3">Tài liệu đặc tả kỹ thuật, slide thuyết trình và hướng dẫn sử dụng sản phẩm.</p>
+                <a href="#documents" class="btn btn-outline-secondary btn-sm mt-auto align-self-start">Mở thư mục</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== 08. CONTACT & FOOTER ==================== -->
+  <footer id="contact" class="bg-dark text-light pt-5 pb-4">
+    <div id="footer" class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary-subtle border-opacity-25">
+        <div class="col-lg-5">
+          <div class="d-flex align-items-center gap-2 text-white fw-bold fs-5 mb-2">
+            <i class="bi bi-layers-half text-primary"></i>
+            <span>NHÓM DỰ ÁN</span>
+          </div>
+          <p class="text-secondary small mb-3">
+            Trang thông tin chính thức lưu trữ hồ sơ thành viên, quy chế hoạt động và tài liệu triển khai dự án của nhóm.
+          </p>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <h3 class="h6 fw-bold text-white mb-3">Điều hướng nhanh</h3>
+          <ul class="list-unstyled small d-flex flex-column gap-2 mb-0">
+            <li><a href="#about" class="link-secondary text-decoration-none">Thành viên nhóm</a></li>
+            <li><a href="#project" class="link-secondary text-decoration-none">Thông tin dự án</a></li>
+            <li><a href="#charter" class="link-secondary text-decoration-none">Quy định nhóm</a></li>
+            <li><a href="#documents" class="link-secondary text-decoration-none">Kho tài liệu</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-4">
+          <h3 class="h6 fw-bold text-white mb-3">Thông tin liên hệ</h3>
+          <ul class="list-unstyled small text-secondary d-flex flex-column gap-2 mb-0">
+            <li><i class="bi bi-envelope me-2 text-primary"></i>nhomduan@example.edu.vn</li>
+            <li><i class="bi bi-geo-alt me-2 text-primary"></i>TP. Hồ Chí Minh, Việt Nam</li>
+            <li><i class="bi bi-clock me-2 text-primary"></i>Thời gian làm việc: Thứ 2 – Thứ 7</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center pt-3 small text-secondary gap-2">
+        <span>&copy; 2026 Nhóm Dự Án. Đã hoàn thiện cấu trúc chuẩn responsive.</span>
+        <a href="#" class="btn btn-outline-light btn-sm rounded-pill px-3">
+          <i class="bi bi-arrow-up me-1"></i>Lên đầu trang
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5.3.3 Bundle JS (Bao gồm Popper cho Dropdown & Navbar Toggler) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- Tự động đóng menu mobile sau khi bấm vào liên kết neo -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const navbarCollapse = document.getElementById('navbarNavDropdown');
+      if (!navbarCollapse) return;
+      const navLinks = navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item, .btn');
+      navLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (window.innerWidth < 992 && navbarCollapse.classList.contains('show')) {
+            const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navbarCollapse);
+            bsCollapse.hide();
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
