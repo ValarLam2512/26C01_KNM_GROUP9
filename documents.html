@@ -18,6 +18,8 @@
 @media(max-width:991.98px){.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8{width:100%}.text-md-end{text-align:left!important}}
 /* TOKEN editor enhancements */
 .member-photo img{width:100%;height:100%;object-fit:cover;object-position:center}
+html body #token-editor-toolbar{display:none!important}
+html body{padding-bottom:0!important}
 
 </style><style>
 :root{--forest:#092f2b;--forest2:#10483f;--green:#b9ed65;--mint:#c8f3d9;--blue:#76c8d5;--ink:#142a28;--muted:#667875;--paper:#f8faf6;--mist:#eef4ef;--line:#dce7df;--heading:'Be Vietnam Pro',sans-serif;--body:'Roboto',sans-serif}
@@ -144,6 +146,23 @@
 @media(max-width:650px){.project-spec-grid{grid-template-columns:1fr}.project-poster-figure{margin:18px 0}}
 
 </style>
+<style>
+.file-actions{display:flex;flex-wrap:wrap;gap:7px;width:100%;margin-top:auto}
+.file-action-button{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:0;border-radius:5px;padding:8px 11px;background:#e7f3e9;color:#276c49;font:800 10px Roboto,Arial,sans-serif;cursor:pointer}
+.file-action-button:hover{background:#cce9d3;color:#174a33}
+.file-action-button.is-download{background:#176c4b;color:#fff}
+.file-action-button.is-download:hover{background:#12583e;color:#fff}
+.file-action-status{width:100%;margin:0;color:#a23a35;font-size:10px}
+.file-preview-dialog{width:min(760px,calc(100% - 24px));max-width:none;max-height:88vh;padding:0;border:1px solid #dce8df;border-radius:14px;color:#193c35;box-shadow:0 24px 80px #001c1680}
+.file-preview-dialog::backdrop{background:rgba(4,24,20,.68);backdrop-filter:blur(4px)}
+.file-preview-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid #e8eee8}
+.file-preview-header h2{margin:0;font:800 16px 'Be Vietnam Pro',sans-serif;overflow-wrap:anywhere}
+.file-preview-close{flex:none;border:0;border-radius:7px;padding:7px 11px;background:#edf4ee;color:#315d43;font-weight:700;cursor:pointer}
+.file-preview-content{padding:16px}
+.file-preview-content iframe{display:block;width:100%;height:min(68vh,600px);border:0;border-radius:6px;background:#f4f8f4}
+.file-preview-content img{display:block;max-width:100%;max-height:68vh;margin:auto;object-fit:contain}
+.file-preview-content p{margin:0;color:#65776b;font-size:12px}
+</style>
 </head>
 <body>
 <nav class="navbar navbar-expand-xl navbar-dark fixed-top token-nav"><div class="container">
@@ -155,9 +174,9 @@
 <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="project.html" role="button" data-bs-toggle="dropdown">Dự án</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="project.html">Tổng quan sản phẩm</a></li><li><a class="dropdown-item" href="project.html#project-idea">Ý tưởng hình thành</a></li><li><a class="dropdown-item" href="project.html#project-problem">Vấn đề môi trường</a></li><li><a class="dropdown-item" href="project.html#project-structure">Cấu tạo &amp; nguyên lý</a></li><li><a class="dropdown-item" href="project.html#project-energy">Năng lượng mặt trời</a></li><li><a class="dropdown-item" href="project.html#project-benefits">Lợi ích kỳ vọng</a></li><li><a class="dropdown-item" href="project.html#project-limits">Hạn chế hiện tại</a></li><li><a class="dropdown-item" href="project.html#project-future">Định hướng tương lai</a></li></ul></li>
 <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="activities.html" role="button" data-bs-toggle="dropdown">Hoạt động</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="activities.html">Timeline cuộc họp</a></li><li><a class="dropdown-item" href="activities.html#activity-assignments">Phân công công việc</a></li><li><a class="dropdown-item" href="activities.html#activity-common">Hoạt động chung</a></li></ul></li>
 <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="charter.html#charter" role="button" data-bs-toggle="dropdown">Quy định nhóm</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="charter.html#charter-must">Điều bắt buộc</a></li><li><a class="dropdown-item" href="charter.html#charter-not">Điều không được làm</a></li><li><a class="dropdown-item" href="charter.html#charter-should">Điều nên làm</a></li><li><a class="dropdown-item" href="charter.html#communication">Kế hoạch giao tiếp</a></li><li><a class="dropdown-item" href="charter.html#teamwork">Phân công &amp; đánh giá</a></li></ul></li>
-<li class="nav-item"><a class="nav-link" href="#">Kho tài liệu</a></li>
+<li class="nav-item"><a class="nav-link" href="documents.html">Kho tài liệu</a></li>
 <li class="nav-item"><a class="nav-link" href="contact.html">Liên hệ</a></li>
-</ul><a class="btn btn-nav ms-xl-3" href="#">Tài liệu nhóm <i class="bi bi-arrow-up-right"></i></a></div></div></nav>
+</ul><a class="btn btn-nav ms-xl-3" href="documents.html">Tài liệu nhóm <i class="bi bi-arrow-up-right"></i></a></div></div></nav>
 <main style="padding-top: 84px;">
 <section id="documents" class="section-pad documents-section"><div class="container"><div class="eyebrow"><span></span> TOKEN DOCUMENT CENTER</div><div class="row align-items-end mb-4"><div class="col-lg-8"><h2 class="section-title">Kho tài liệu nhóm.<br><em>Tập trung mọi tệp cần nộp.</em></h2></div><div class="col-lg-4"><p class="muted">Khu vực dành riêng để đăng file PDF, DOCX, PPTX, XLSX, ZIP, bản vẽ và các tài liệu chính thức của nhóm.</p></div></div>
 <div class="document-notice"><i class="bi bi-folder2-open"></i><div><b>Kho tệp có thể mở rộng</b><span>Mỗi thẻ dưới đây là một vị trí tài liệu độc lập. Khi có file mới, thêm file vào Assets của Mobirise rồi gắn file đó vào nút tương ứng.</span></div></div>
@@ -1055,6 +1074,120 @@ document.querySelectorAll('#tokenNav .nav-link, #tokenNav .dropdown-item').forEa
   loadDraft();
 })();
 
+</script>
+
+<script>
+(() => {
+  const dialog = document.createElement('dialog');
+  dialog.className = 'file-preview-dialog';
+  dialog.setAttribute('aria-labelledby', 'file-preview-title');
+  dialog.innerHTML = `
+    <header class="file-preview-header">
+      <h2 id="file-preview-title"></h2>
+      <button class="file-preview-close" type="button">Đóng</button>
+    </header>
+    <div class="file-preview-content"></div>`;
+  document.body.appendChild(dialog);
+
+  const previewTitle = dialog.querySelector('#file-preview-title');
+  const previewContent = dialog.querySelector('.file-preview-content');
+  const closePreviewButton = dialog.querySelector('.file-preview-close');
+
+  function showPreview(file) {
+    const mime = (file.href.match(/^data:([^;,]+)/i) || [])[1] || '';
+    const extension = file.name.split('.').pop().toLowerCase();
+    previewTitle.textContent = `Xem trước: ${file.name}`;
+    previewContent.replaceChildren();
+
+    if (mime.startsWith('image/')) {
+      const image = document.createElement('img');
+      image.src = file.href;
+      image.alt = file.name;
+      previewContent.appendChild(image);
+    } else if (mime === 'application/pdf' || extension === 'pdf' || mime.startsWith('text/')) {
+      const frame = document.createElement('iframe');
+      frame.src = file.href;
+      frame.title = `Xem trước ${file.name}`;
+      previewContent.appendChild(frame);
+    } else {
+      const message = document.createElement('p');
+      message.textContent = 'Trình duyệt không hỗ trợ xem trước định dạng này. Bạn có thể tải tệp xuống để mở.';
+      previewContent.appendChild(message);
+    }
+    dialog.showModal();
+  }
+
+  function downloadFile(file, status) {
+    status.textContent = '';
+    try {
+      const separator = file.href.indexOf(',');
+      if (!file.href.startsWith('data:') || separator < 0) throw new Error('Liên kết tệp không hợp lệ.');
+      const metadata = file.href.slice(5, separator);
+      const content = file.href.slice(separator + 1);
+      const mime = metadata.split(';')[0] || 'application/octet-stream';
+      let blob;
+      if (metadata.includes(';base64')) {
+        const binary = atob(content);
+        const bytes = new Uint8Array(binary.length);
+        for (let index = 0; index < binary.length; index++) bytes[index] = binary.charCodeAt(index);
+        blob = new Blob([bytes], { type: mime });
+      } else {
+        blob = new Blob([decodeURIComponent(content)], { type: mime });
+      }
+
+      const objectUrl = URL.createObjectURL(blob);
+      const anchor = document.createElement('a');
+      anchor.href = objectUrl;
+      anchor.download = file.name;
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      setTimeout(() => URL.revokeObjectURL(objectUrl), 10000);
+    } catch (error) {
+      console.error('Không thể tải tệp tài liệu:', error);
+      status.textContent = 'Không tải được tệp. Vui lòng thử lại.';
+    }
+  }
+
+  document.querySelectorAll('.file-card .file-link[href^="data:"]').forEach(link => {
+    const href = link.getAttribute('href');
+    const mime = (href.match(/^data:([^;,]+)/i) || [])[1] || '';
+    if (!mime.startsWith('image/') && !link.hasAttribute('download')) return;
+
+    const file = {
+      name: link.getAttribute('download') || link.closest('.file-card').querySelector('b')?.textContent.trim() || link.textContent.trim(),
+      href
+    };
+    const actions = document.createElement('div');
+    actions.className = 'file-actions';
+    const previewButton = document.createElement('button');
+    previewButton.type = 'button';
+    previewButton.className = 'file-action-button';
+    previewButton.dataset.teIgnore = '';
+    previewButton.innerHTML = '<i class="bi bi-eye"></i> Xem trước';
+    previewButton.addEventListener('click', () => showPreview(file));
+    actions.appendChild(previewButton);
+
+    if (!mime.startsWith('image/')) {
+      const downloadButton = document.createElement('button');
+      downloadButton.type = 'button';
+      downloadButton.className = 'file-action-button is-download';
+      downloadButton.dataset.teIgnore = '';
+      downloadButton.innerHTML = '<i class="bi bi-download"></i> Tải xuống';
+      const status = document.createElement('span');
+      status.className = 'file-action-status';
+      status.setAttribute('role', 'status');
+      downloadButton.addEventListener('click', () => downloadFile(file, status));
+      actions.append(downloadButton, status);
+    }
+    link.replaceWith(actions);
+  });
+
+  closePreviewButton.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog) dialog.close();
+  });
+})();
 </script>
 
 </body></html>
